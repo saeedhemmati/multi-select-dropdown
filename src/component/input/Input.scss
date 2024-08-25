@@ -1,0 +1,32 @@
+@import '../../style/variables';
+
+.input-wrapper {
+  border: 1px solid $gray-1;
+  border-radius: 1rem;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+  &.is-focus {
+    outline: 3px solid $blue1;
+    border: 2px solid $blue2;
+  }
+  &__input,
+  &__input:focus {
+    color: $gray-2;
+    flex: 1;
+    border: unset;
+    outline: none;
+  }
+  &__caret-up {
+    width: 25px;
+    transition: transform $slide-transition;
+    &.is-open {
+      transform: $rotate-180-x;
+    }
+    g path {
+      stroke: $gray-2;
+    }
+  }
+}

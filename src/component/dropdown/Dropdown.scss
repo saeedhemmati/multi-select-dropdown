@@ -1,0 +1,75 @@
+@import '../../style/variables';
+@import '../../style/mixin/animation';
+@import '../../style/mixin/scrollbar';
+
+.dropdown-wrapper {
+  border: 2px solid $gray-0;
+  height: fit-content;
+  min-height: 85px;
+  max-height: 300px;
+  width: 100%;
+  border-radius: 18px;
+  @include animation(fade-out-opacity);
+  opacity: 0;
+  scale: 0 0;
+  transition: scale $slide-transition;
+  padding: 0.5rem;
+  overflow: hidden;
+  &__main-container {
+    max-height: 200px;
+    overflow-y: auto;
+    @include scrollbar;
+  }
+  & div[role='button'] {
+    padding: 0 1rem;
+    &:hover {
+      background-color: $blue0;
+      border-radius: 10px;
+    }
+  }
+
+  &.is-open {
+    opacity: 1;
+    scale: 1 1;
+    @include animation(fade-in-opacity);
+  }
+  &__ul {
+    li {
+      list-style: none;
+      cursor: pointer;
+      line-height: 40px;
+      display: inline-block;
+      width: 100%;
+      color: $gray-2;
+    }
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: $blue3;
+      &.fade-in {
+        @include animation(scale-in);
+        transform: scale(1);
+      }
+      &.fade-out {
+        transform: scale(0);
+        @include animation(scale-out);
+      }
+    }
+    &--div {
+      user-select: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 5px;
+      &.is-last {
+        margin-bottom: 0;
+      }
+      &.selected {
+        background-color: $blue0;
+        border-radius: 10px;
+      }
+    }
+  }
+}

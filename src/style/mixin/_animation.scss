@@ -1,0 +1,44 @@
+@import '../variables';
+
+@mixin animation($animationName) {
+  -webkit-animation: $animationName $slide-transition;
+  -moz-animation: $animationName $slide-transition;
+  -o-animation: $animationName $slide-transition;
+  animation: $animationName $slide-transition;
+}
+
+@keyframes fade-in-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: Scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-out {
+  0% {
+    transform: Scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
